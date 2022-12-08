@@ -1,7 +1,7 @@
 # Simple Light-Dark-Toggle-Switch Project
 
-# Used Stacks: Html, Css, Javascript.
+## Used Stacks: Html, Css, Javascript.
 
-# Hosted In : Netlify
+## Hosted In : Netlify
 
-# Live Demo: https://precious-basbousa-f53cac.netlify.app/
+## Live Demo: https://precious-basbousa-f53cac.netlify.app/
