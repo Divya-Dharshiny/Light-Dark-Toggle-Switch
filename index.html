@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+	<title>Light and Dark Toggle Switch</title>	
+	<link rel="stylesheet" href="./styles.css">
+	
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="#" class="nav-btn">Code</a></li>
+        </ul>
+      </nav>
+      <div class="flex">
+        <label class="hack">
+          <input id="cbox" type="checkbox"></input>
+          <span id="mySpan" class="slide round"></span>
+        </label>
+      </div>
+      <div class="container">
+        <h2>index.html</h2>
+        <p>Code Yourself</p><br />
+        <h2>styles.css</h2>
+        <p>@charset "UTF-8";<br />
+            @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");<br />
+            body {<br />
+              background: #FFF;<br />
+              transition: 0.3s ease-in-out;<br />
+            }<br />
+            body nav {<br />
+              margin-top: 2.2rem;<br />
+              margin-left: auto;<br />
+              margin-right: auto;<br />
+              padding-left: 1rem;<br />
+              padding-right: 1rem;<br />
+              max-width: 900px;<br />
+            }<br />
+            body nav ul {<br />
+              display: flex;<br />
+              list-style: none;<br />
+              padding-left: 0;<br />
+            }<br />
+            body nav ul li {<br />
+              font-size: 1.5rem;<br />
+            }<br />
+            body nav ul li a {<br />
+              color: #000;<br />
+              text-decoration: none;<br />
+              border-bottom: 3px solid transparent;<br />
+            }<br />
+            body nav ul li a:hover {<br />
+              border-color: #333;<br />
+            }<br />
+            
+            .flex {<br />
+              display: flex;<br />
+              justify-content: space-between;<br />
+              align-items: center;<br />
+            }<br />
+            .flex .hack {<br />
+              margin: 1rem;<br />
+              display: inline-block;<br />
+              position: absolute;<br />
+              top: 1rem;<br />
+              right: 1rem;<br />
+              width: 60px;<br />
+              height: 34px;<br />
+            }<br />
+            .flex .hack input {<br />
+              opacity: 0;<br />
+              height: 0;<br />
+              width: 0;<br />
+            }<br />
+            .flex .hack span {<br />
+              width: 63px;<br />
+            }<br />
+            .flex .hack input:before {<br />
+              position: absolute;<br />
+              top: 7px;<br />
+              left: 6px;<br />
+              content: "";<br />
+            }<br />
+            .flex .hack .slide {<br />
+              position: absolute;<br />
+              cursor: pointer;<br />
+              top: 0;<br />
+              left: 0;<br />
+              right: 0;<br />
+              bottom: 0;<br />
+              background: #ddd;<br />
+              box-shadow: -1px 6px 25px -12px rgba(0, 0, 0, 0.75);<br />
+              -webkit-transition: 0.4s;<br />
+              transition: 0.4s;<br />
+            }<br />
+            .flex .hack .slide:before {<br />
+              position: absolute;<br />
+              content: "";<br />
+              height: 26px;<br />
+              width: 26px;<br />
+              left: 4px;<br />
+              bottom: 4px;<br />
+              background: #FFF;<br />
+              -webkit-transition: 0.4s;<br />
+              transition: 0.4s;<br />
+              z-index: 999;<br />
+            }<br />
+            .flex .hack .slide:after {<br />
+              position: absolute;<br />
+              top: 8px;<br />
+              right: 5px;<br />
+              color: #F1C40F;<br />
+              font-family: "Font Awesome 5 Free";<br />
+              vertical-align: middle;<br />
+              font-weight: 900;<br />
+              font-size: 0.8rem;<br />
+              content: "🌙";<br />
+              display: inline-block;<br />
+              z-index: 1;<br />
+            }<br />
+            .flex .hack input:checked + .slide {<br />
+              background: #444;<br />
+              opacity: 0.8;<br />
+            }<br />
+            .flex .hack input:focus + .slide {<br />
+              box-shadow: 0 0 1px #2196F3;<br />
+            }<br />
+            .flex .hack input:checked + .slide:before {<br />
+              -webkit-transform: translateX(30px);<br />
+              -ms-transform: translateX(30px);<br />
+              transform: translateX(30px);<br />
+            }<br />
+            .flex .hack .slide.round {<br />
+              border-radius: 33px;<br />
+            }<br />
+            .flex .hack .slide.round:before {<br />
+              border-radius: 50%;<br />
+            }<br />
+            
+            .container {<br />
+              display: flex;<br />
+              flex-direction: column;<br />
+              justify-content: flex-start;<br />
+              margin: 1rem auto 1rem auto;<br />
+              padding: 0 1rem 0 1rem;<br />
+              max-width: 900px;<br />
+            }<br />
+            .container h2 {<br />
+              font-size: 3.5rem;<br />
+              margin-bottom: 1rem;<br />
+            }<br />
+            .container p {<br />
+              font-size: 1.3rem;<br />
+              line-height: 1.5;<br />
+            }</p><br />
+        <h2>script.js</h2>
+        <p>const mySpan = document.getElementById("mySpan");<br />
+            const myInput = document.getElementById("cbox");<br />
+            const navBtns = document.querySelectorAll(".nav-btn");<br />
+            console.log(navBtns);<br />
+            
+            window.onload = () => {<br />
+              mySpan.addEventListener("click", () => {<br />
+                console.log(myInput.checked);<br />
+                if (myInput.checked) {<br />
+                  document.body.style.background = "#FFF";<br />
+                  document.body.style.color = "#000";<br />
+                  for (let i=0; i < navBtns.length; i++) {<br />
+                    navBtns[i].style.color = "#000";<br />
+                    navBtns[i].addEventListener("mouseover", () => {<br />
+                      navBtns[i].style.borderColor = "#222";<br />
+                    });<br />
+                    navBtns[i].addEventListener("mouseout", () => {<br />
+                      navBtns[i].style.borderColor = "transparent";<br />
+                    });<br />
+                  }<br />
+                } else {<br />
+                  document.body.style.background = "hsl(0, 1%, 8%)";<br />
+                  for (let i=0; i < navBtns.length; i++) {<br />
+                    navBtns[i].style.color = "#FFF";<br />
+                    navBtns[i].addEventListener("mouseover", () => {<br />
+                      navBtns[i].style.borderColor = "#eee";<br />
+                    });<br />
+                    navBtns[i].addEventListener("mouseout", () => {<br />
+                      navBtns[i].style.borderColor = "transparent";<br />
+                    });<br />
+                  }<br />
+                  document.body.style.color = "#FFF";<br /> 
+                }<br />
+              });<br />
+            }</p><br />
+      </div>
+
+
+
+
+    
+<script src="./script.js"></script>
+
+</body>
+</html>
